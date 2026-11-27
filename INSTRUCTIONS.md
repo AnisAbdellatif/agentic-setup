@@ -21,7 +21,7 @@ Before touching anything, ask the user: **everything, a preset, or pick componen
 - Skip every later step whose component is not selected, and prerequisites only needed by skipped components. Add a skipped item to `skip` rather than deleting it from the repo.
 
 ## 1. Prerequisites
-New machine: run https://github.com/AnisAbdellatif/dev-setup first (`INSTRUCTIONS.md` there). It installs every tool below (`git`, `jq`, `node`, `uv`, `bun`, `gitleaks`, `typst`, `d2`); this section then only checks they exist.
+New machine: suggest running https://github.com/AnisAbdellatif/dev-setup first (`INSTRUCTIONS.md` there); never execute it yourself, the user runs it. It installs every tool below (`git`, `jq`, `node`, `uv`, `bun`, `gitleaks`, `typst`, `d2`); this section then only checks they exist.
 Check: `claude`, `git`, `jq`, `node`+`npm`, `uv`, `bun`, `gitleaks` (pre-commit secret scan; `brew install gitleaks` or the release binary). Report missing ones with the install hint; install via the system package manager only after asking.
 - Bare machine (no `claude`/`node`): ask, then install Node >=20 (system pkg manager, `fnm`, or NodeSource on Debian) and `npm i -g @anthropic-ai/claude-code`, put the global npm bin on the non-interactive PATH (`~/.profile`, not only `.zshrc`), clone this repo, and continue. Hooks call bare `tokenade`, so it must resolve there too.
 - `bun` is needed by the goldfish plugin's MCP server (https://bun.sh).
@@ -64,7 +64,10 @@ REA analysis engines (optional; export the vars in the shell profile, `npx -y re
 Optional: `eval "$(tokenade shell-init)"` in the shell rc (tokenade shell proxy) — ask first.
 
 ## 5. MCP servers (user scope)
-None besides `rea` (section 4) and goldfish's (from its plugin). To add one:
+Besides `rea` (section 4) and goldfish's (from its plugin):
+- `utm` (drives UTM VMs; macOS + UTM + `uv`): `git clone https://github.com/AnisAbdellatif/utm-mcp.git ~/dev/utm-mcp && (cd ~/dev/utm-mcp && uv sync)`, then `claude mcp add --scope user utm -- uv --directory ~/dev/utm-mcp run utm-mcp`. For Windows guests build the in-guest helper once: `cargo install cargo-xwin`, then `~/dev/utm-mcp/scripts/build_helper.sh`. Per VM: stop it, call `vm_enable_qmp`, start it. Check: `claude mcp get utm` shows Connected.
+
+To add one:
 `claude mcp add --scope user <name> ...`, secrets from env vars (e.g. `--header "Authorization: Bearer ${X_API_KEY}"`); skip with a note if the var is unset. Check `claude mcp list` first. Record new servers here.
 
 ## 5b. T3 Code config (`t3/`)

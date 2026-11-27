@@ -1,10 +1,4 @@
 {
-  "env": {
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "ag/gemini-3.8-flash-high",
-    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "300000",
-    "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-8"
-  },
   "model": "claude-sonnet-5-5",
   "hooks": {
     "PostToolUse": [
