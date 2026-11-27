@@ -1,0 +1,247 @@
+{
+  "env": {
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "ag/gemini-3.8-flash-high",
+    "CLAUDE_CODE_AUTO_COMPACT_WINDOW": "300000",
+    "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-8"
+  },
+  "model": "claude-sonnet-5-5",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-websearch-post 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "WebSearch"
+      },
+      {
+        "hooks": [
+          {
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-mcp-post 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "mcp__.*"
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash|Read"
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-postread",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-postread 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Read|Grep|Glob"
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-postwebfetch",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-postwebfetch 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "WebFetch"
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-index",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade index-touch 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Edit|Write|MultiEdit"
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "_tag": "format",
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/format.py\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-precompact",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-precompact 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "_tag": "guard",
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/hooks/guard.py\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-pre-edit",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade pre-edit-snapshot 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Edit|Write|MultiEdit"
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-pretool",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-pretool 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash|Read|Grep|WebFetch|WebSearch|Task|Agent|PowerShell|Write|Edit"
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "sh -c 'r=$(dirname \"$(readlink \"$HOME/.claude/CLAUDE.md\")\") && python3 \"$r/scripts/settings.py\" >/dev/null 2>&1; command -v t3-omniroute-sync >/dev/null && t3-omniroute-sync --link-only >/dev/null 2>&1; exit 0'",
+            "timeout": 30,
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-sessionstart",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-sessionstart 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-subagentstop",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-subagentstop 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "_tag": "tokenade-userprompt",
+            "command": "sh -c 'TOKENADE_DEBUG_LOG=\"$HOME/.tokenade/debug.log\" tokenade hookwrap-userprompt 2>/dev/null; exit 0'",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "tokenade statusline"
+  },
+  "enabledPlugins": {
+    "academic-research-skills@academic-research-skills": true,
+    "goldfish@goldfish": true,
+    "humanizer@humanizer": true,
+    "ponytail@ponytail": true,
+    "agent-estimate@agent-estimate-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "academic-research-skills": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/Imbad0202/academic-research-skills.git"
+      }
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "goldfish": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/anortham/goldfish.git"
+      }
+    },
+    "humanizer": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/blader/humanizer.git"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "agent-estimate-marketplace": {
+      "source": {
+        "repo": "kiloloop/agent-estimate",
+        "source": "github"
+      }
+    }
+  },
+  "subagentPromptCacheTtl": "1h",
+  "effortLevel": "medium",
+  "autoCompactWindow": 300000,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "switchModelsOnFlag": false,
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "_tokenadeAutoCompact": {
+    "pct": 50,
+    "window": 300000
+  },
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa*)",
+      "Read(**/id_ed25519*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.netrc)",
+      "Read(~/.git-credentials)",
+      "Read(~/.config/gh/hosts.yml)",
+      "Read(~/.claude/settings.private.json)",
+      "Read(~/.claude/.credentials.json)"
+    ]
+  }
+}

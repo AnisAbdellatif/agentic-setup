@@ -1,0 +1,6 @@
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "http://<omniroute-host>:20128",
+    "ANTHROPIC_AUTH_KEY": "<your OmniRoute API key>"
+  }
+}

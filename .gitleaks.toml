@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[allowlist]
+# keybinding "key" fields are not secrets
+paths = ["t3/keybindings.json"]

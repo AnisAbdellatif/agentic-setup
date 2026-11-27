@@ -1,0 +1,22 @@
+# secrets / machine-local (guard against accidental copies)
+.credentials.json
+settings.local.json
+.claude.json
+.env*
+*.bak.*
+.DS_Store
+# skills installed by tools (see INSTRUCTIONS.md section 4)
+skills/graphify/
+skills/synced/
+skills/reverse-engineer-anything/
+# tokenade scaffolding artifacts
+AGENTS.md
+CLAUDE.md.tokenade-original
+settings.private.json
+settings.last-build.json
+__pycache__/
+
+# personal session memory (never publish)
+.memories/
+.tokenade/
+.claude/

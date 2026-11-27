@@ -1,0 +1,759 @@
+{
+  "favorites": [],
+  "providerModelPreferences": {
+    "claudeAgent": {
+      "hiddenModels": [],
+      "modelOrder": [
+        "claude-opus-5-5",
+        "claude-sonnet-5-5",
+        "claude-fable-5-1",
+        "claude-fable-5",
+        "claude-opus-5",
+        "claude-opus-4-8",
+        "claude-opus-4-7",
+        "claude-opus-4-6",
+        "claude-opus-4-5",
+        "claude-sonnet-5",
+        "claude-sonnet-4-6",
+        "claude-haiku-5-5",
+        "claude-haiku-4-5"
+      ]
+    },
+    "omniroute": {
+      "hiddenModels": [
+        "claude-fable-5",
+        "claude-opus-5",
+        "claude-opus-4-7",
+        "claude-opus-4-5",
+        "claude-sonnet-5",
+        "claude-haiku-4-5",
+        "claude-haiku-5-5",
+        "claude-sonnet-4-6",
+        "claude-opus-4-6",
+        "claude-opus-4-8",
+        "claude-fable-5-1",
+        "claude-sonnet-5-5",
+        "claude-opus-5-5"
+      ],
+      "modelOrder": []
+    }
+  },
+  "defaultAutoPull": true,
+  "defaultModelSelection": {
+    "instanceId": "claudeAgent",
+    "model": "claude-sonnet-5-5",
+    "options": [
+      {
+        "id": "effort",
+        "value": "medium"
+      }
+    ]
+  },
+  "projectSettingsFolded": true,
+  "idleCompaction": "onReturn",
+  "autoResumeLimitedThreads": true,
+  "addProjectBaseDirectory": "~/dev/",
+  "branchNamingMode": "semantic",
+  "removeAgentCreditsOnMerge": true,
+  "providerInstances": {
+    "codex": {
+      "driver": "codex",
+      "enabled": false
+    },
+    "antigravity": {
+      "driver": "antigravity",
+      "displayName": "Antigravity (account 1)",
+      "enabled": true
+    },
+    "claudeAgent": {
+      "driver": "claudeAgent",
+      "environment": [
+        {
+          "name": "ANTHROPIC_BASE_URL",
+          "value": "http://<omniroute-host>:20128",
+          "sensitive": false
+        },
+        {
+          "name": "CLAUDE_CODE_SUBAGENT_MODEL",
+          "value": "claude-opus-4-8",
+          "sensitive": false
+        },
+        {
+          "name": "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY",
+          "value": "1",
+          "sensitive": false
+        },
+        {
+          "name": "ANTHROPIC_DEFAULT_HAIKU_MODEL",
+          "value": "ag/gemini-3.8-flash-high",
+          "sensitive": false
+        },
+        {
+          "name": "ANTHROPIC_AUTH_TOKEN",
+          "value": "",
+          "sensitive": true,
+          "valueRedacted": true
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "value": " ",
+          "sensitive": false
+        }
+      ],
+      "enabled": false,
+      "config": {
+        "customModels": [
+          "antigravity/gemini-3.8-flash-medium"
+        ]
+      }
+    },
+    "omniroute": {
+      "driver": "claudeAgent",
+      "displayName": "Omniroute",
+      "environment": [
+        {
+          "name": "ANTHROPIC_BASE_URL",
+          "value": "http://<omniroute-host>:20128",
+          "sensitive": false
+        },
+        {
+          "name": "ANTHROPIC_AUTH_TOKEN",
+          "value": "",
+          "sensitive": true,
+          "valueRedacted": true
+        },
+        {
+          "name": "ANTHROPIC_API_KEY",
+          "value": "",
+          "sensitive": false
+        },
+        {
+          "name": "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY",
+          "value": "1",
+          "sensitive": false
+        }
+      ],
+      "enabled": true,
+      "config": {
+        "homePath": "~/.claude-omniroute",
+        "autoCompactWindow": "300000",
+        "customModels": [
+          {
+            "slug": "antigravity/claude-opus-4-6-thinking",
+            "name": "[AG] Claude Opus 4.6 Thinking",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "antigravity/claude-opus-5-5",
+            "name": "[AG] Claude Opus 5.5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "antigravity/claude-sonnet-4-6",
+            "name": "[AG] Claude Sonnet 4.6",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "antigravity/claude-sonnet-5-5",
+            "name": "[AG] Claude Sonnet 5.5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "antigravity/gemini-3-flash",
+            "name": "[AG] Gemini 3 Flash"
+          },
+          {
+            "slug": "antigravity/gemini-3.1-flash-lite",
+            "name": "[AG] Gemini 3.1 Flash Lite"
+          },
+          {
+            "slug": "antigravity/gemini-3.5-flash-lite",
+            "name": "[AG] Gemini 3.5 Flash Lite"
+          },
+          {
+            "slug": "antigravity/gemini-3.8-flash",
+            "name": "[AG] Gemini 3.8 Flash",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "antigravity/gemini-3.8-flash-tiered",
+            "name": "[AG] Gemini 3.8 Flash Tiered"
+          },
+          {
+            "slug": "antigravity/gpt-oss-120b",
+            "name": "[AG] Gpt Oss 120b",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-fable-5",
+            "name": "[Claude] Claude Fable 5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-fable-5-1",
+            "name": "[Claude] Claude Fable 5.1",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-haiku-4-5-20251001",
+            "name": "[Claude] Claude Haiku 4.5 (2025-10-01)",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-haiku-5-5",
+            "name": "[Claude] Claude Haiku 5.5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-opus-4-5-20251101",
+            "name": "[Claude] Claude Opus 4.5 (2025-11-01)",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-opus-4-6",
+            "name": "[Claude] Claude Opus 4.6",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-opus-4-7",
+            "name": "[Claude] Claude Opus 4.7",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-opus-4-8",
+            "name": "[Claude] Claude Opus 4.8",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-opus-5",
+            "name": "[Claude] Claude Opus 5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-opus-5-5",
+            "name": "[Claude] Claude Opus 5.5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    },
+                    {
+                      "id": "max",
+                      "label": "Max"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-sonnet-4-6",
+            "name": "[Claude] Claude Sonnet 4.6",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-sonnet-5",
+            "name": "[Claude] Claude Sonnet 5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "slug": "claude/claude-sonnet-5-5",
+            "name": "[Claude] Claude Sonnet 5.5",
+            "capabilities": {
+              "optionDescriptors": [
+                {
+                  "id": "effort",
+                  "label": "Reasoning",
+                  "type": "select",
+                  "options": [
+                    {
+                      "id": "low",
+                      "label": "Low"
+                    },
+                    {
+                      "id": "medium",
+                      "label": "Medium",
+                      "isDefault": true
+                    },
+                    {
+                      "id": "high",
+                      "label": "High"
+                    },
+                    {
+                      "id": "xhigh",
+                      "label": "Extra High"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "antigravity_account_2": {
+      "driver": "antigravity",
+      "displayName": "Antigravity (account 2)",
+      "enabled": true
+    },
+    "antigravity_account_3": {
+      "driver": "antigravity",
+      "displayName": "Antigravity (account 3)",
+      "enabled": true
+    }
+  }
+}
